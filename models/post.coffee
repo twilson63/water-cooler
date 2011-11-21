@@ -2,7 +2,7 @@
 markdown = require('markdown').markdown
 sugar = require('sugar')
 cradle = require 'cradle'
-db = new(cradle.Connection)(process.env.COUCHDB, process.env.PORT or 5984, cache: true, raw: false, auth: { username: process.env.USERNAME, password: process.env.PASSWORD}).database("blog")
+db = new(cradle.Connection)(process.env.COUCHDB, process.env.PORT or 5984, cache: true, raw: false, auth: { username: process.env.USERNAME, password: process.env.PASSWORD}).database("water-cooler")
 
 module.exports = 
   setDefaults: (post) ->

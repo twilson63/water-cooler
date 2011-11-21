@@ -3,7 +3,7 @@ Post = require './models/post'
 module.exports = (app, auth) ->
   # index
   app.get /^\/$|^\/posts$/, auth(), (req, resp) -> 
-    Post.all (err, posts) -> resp.render 'index', posts: posts.reverse()
+    Post.all (err, posts) -> resp.render 'index', posts: (posts or []).reverse()
 
   # new
   app.get '/posts/new', auth(), (req, resp) -> resp.render 'new'
