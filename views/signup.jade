@@ -1,9 +1,9 @@
 .container
   .two.columns
-    h1 Login
+    h1 Register
   .offset-by-one.four.columns
-    h3 Welcome to the Water Cooler
-    form(method='POST', action='/sessions')
+    h3 Register for the Water Cooler
+    form(method='POST', action='/register')
       p
         label User
         input(type='text', name='username')
@@ -11,6 +11,8 @@
         label Password
         input(type='password', name='password')
       p
-        button Sign In
-        | or
-        a(href='/register') Register
+        label Confirm Password
+        input(type='password', name='confirm')
+      p
+        button Sign Up
+        

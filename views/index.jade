@@ -2,9 +2,12 @@
   .two.columns
     h1 Water Cooler
     a.button(href="/posts/new", style='width:100%') New Post
+    a.button(href="/logout", style='width:100%') Sign Out
   .right.eight.columns.offset-by-one
     ul
       each post in posts
         li
           h3
-            a(href="/posts/#{post.id}")= post.key
+            a(href="/posts/#{post.id}")= post.value.title
+          p 
+            = 'by ' + post.value.creator + ' on ' + post.value.created_at

@@ -15,9 +15,12 @@ module.exports = (app) ->
     resp.render 'login'
   app.get '/logout', (req, resp) ->
     req.session.destroy (err) -> resp.redirect '/login'
+  app.get '/register', (req, resp) ->
+    resp.render 'signup'
+
   app.post '/sessions', (req, resp) ->
     request.post
-      uri: 'http://admin:admin@authur.wilbur.io/auth/test'
+      uri: process.env.AUTHUR
       json: req.body
       (err, response, body) ->
         if body.success
@@ -30,4 +33,12 @@ module.exports = (app) ->
         else
           req.flash 'error', 'Not Authorized!'
           resp.redirect '/login'
-    
+  app.post '/register', (req, resp) ->
+    request.put
+      uri: process.env.REGISTER + '/' + req.body.username
+      json: req.body
+      (err, response, body) -> 
+        request.post
+          uri: process.env.REGISTER + '/' + req.body.username + '/apps/test'
+          json: true
+          (err, response, body) -> resp.redirect '/login'
