@@ -10,7 +10,6 @@ module.exports = (app, auth) ->
 
   # create
   app.post '/posts', auth(), (req, resp) ->
-    req.body.creator = req.session.user 
     req.body.updated_by = req.session.user 
     Post.create req.body, (err, post) -> resp.redirect "/posts/#{post.id}"
 

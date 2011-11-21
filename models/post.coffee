@@ -12,7 +12,6 @@ module.exports =
 
   create: (post, cb) ->
     post = @setDefaults post
-    post.created_at = Date.create().iso()
     db.save post, cb
   
   get: (id, cb) -> 
