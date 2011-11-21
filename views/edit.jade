@@ -9,6 +9,7 @@
         input(type='text', name="title", value=title, autofocus)
       p
         label Body
-        textarea(name="body")= body
+        textarea(name="body", placeholder="Markdown Enabled")= body
+        small: a(href="http://daringfireball.net/projects/markdown/syntax") markdown supported
       p
         button Update

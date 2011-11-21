@@ -12,7 +12,6 @@ module.exports = (app) ->
       #next()
 
   app.get '/login', (req, resp) -> 
-    console.log req.session.referrer
     resp.render 'login'
   app.get '/logout', (req, resp) ->
     req.session.destroy (err) -> resp.redirect '/login'
