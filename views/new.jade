@@ -1,0 +1,13 @@
+.container
+  .two.columns
+    h1 New Post
+  .eight.columns.offset-by-one
+    form(method='POST', action='/posts')
+      p
+        label Title
+        input(type='text', name="title", autofocus)
+      p
+        label Body
+        textarea(name="body")
+      p
+        button Publish

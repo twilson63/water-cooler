@@ -1,0 +1,14 @@
+.container
+  .two.columns
+    h1 Login
+  .offset-by-four.six.columns
+    h2 &nbsp;
+    form(method='POST', action='/sessions')
+      p
+        label User
+        input(type='text', name='username')
+      p
+        label Password
+        input(type='password', name='password')
+      p
+        button Sign In

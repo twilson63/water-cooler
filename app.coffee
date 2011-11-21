@@ -1,11 +1,18 @@
 express = require 'express'
-stylus = require 'stylus'
-assets = require 'connect-assets'
+middleware = require './middleware'
+# declare controllers
+sessions = require './sessions'
+posts = require './posts'
 
 app = express.createServer()
-app.use assets()
+
+# Configuration
+middleware(express, app)
 app.set 'view engine', 'jade'
 
-app.get '/', (req, resp) -> resp.render 'index'
+# Load Controllers
+sessions(app)
+posts(app, app.auth)
 
+# Start Server
 app.listen process.env.VMC_APP_PORT or 3000, -> console.log 'Listening...'

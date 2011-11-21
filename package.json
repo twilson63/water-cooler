@@ -4,12 +4,15 @@
   , "private": true
   , "dependencies": {
       "coffee-script": "1.1.x"
+    , "request": "*" 
     , "express": "2.5.x" 
     , "jade": "0.x.x"
     , "connect-assets": "2.1.x"
     , "stylus": "*"
     , "nib": "*"
     , "markdown": "*"
+    , "cradle": "*"
+    , "sugar": "*"
   }
   , "devDependencies": {
   }

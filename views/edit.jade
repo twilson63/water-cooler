@@ -1,0 +1,14 @@
+.container
+  .two.columns
+    h1 Edit Post
+  .eight.columns.offset-by-one
+    form(method='POST', action="/posts/#{_id}")
+      input(type="hidden", name="_method", value="PUT")
+      p
+        label Title
+        input(type='text', name="title", value=title, autofocus)
+      p
+        label Body
+        textarea(name="body")= body
+      p
+        button Update
