@@ -3,9 +3,13 @@
     h1 Post
     a.button(href="/posts/#{_id}/edit", style='width:100%') Edit
     a.button(href="/posts", style='width:100%') Home
-  .eight.columns.offset-by-one
+  .twelve.columns.offset-by-one
     h3= title
     hr
-    !{formatted_body}
+    .markdown
+      !{formatted_body}
     hr
     p Updated By !{updated_by} on !{updated_at}
+    form(id="delete", method="POST", action="/posts/#{_id}")
+      input(type="hidden", name="_method", value="DELETE")
+      button(style="width: 100%") Delete

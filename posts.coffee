@@ -30,4 +30,4 @@ module.exports = (app, auth) ->
 
   # delete
   app.del '/posts/:id', auth(), (req, resp) ->
-    Post.destroy req.params.id, (err, post) -> resp.redirect "/posts"
+    Post.destroy req.params.id, (err, post) -> resp.redirect "/"

@@ -10,7 +10,7 @@
     , "connect-assets": "2.1.x"
     , "stylus": "*"
     , "nib": "*"
-    , "markdown": "*"
+    , "node-markdown": "*"
     , "cradle": "*"
     , "sugar": "*"
   }

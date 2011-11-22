@@ -1,5 +1,4 @@
-#resourceful = require 'resourceful'
-markdown = require('markdown').markdown
+md = require('node-markdown').Markdown
 sugar = require('sugar')
 cradle = require 'cradle'
 db = new(cradle.Connection)(process.env.COUCHDB, process.env.PORT or 5984, cache: true, raw: false, auth: { username: process.env.USERNAME, password: process.env.PASSWORD}).database("water-cooler")
@@ -16,13 +15,15 @@ module.exports =
   
   get: (id, cb) -> 
     db.get id, (err, post) ->
-      # parse markdown
-      post.formatted_body = markdown.toHTML(post.body)
+      post.formatted_body = md(post.body) if post
       cb(null, post)
 
   update: (id, post, cb) -> 
     post = @setDefaults post
     db.save id, post, cb
+  destroy: (id, cb) ->
+    db.get id, (err, post) -> db.remove id, post._rev, cb
+      
   all: (cb) -> db.view 'posts/all', cb 
   # Build Views
   initDb: ->
