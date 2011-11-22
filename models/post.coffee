@@ -23,6 +23,12 @@ module.exports =
     db.save id, post, cb
   destroy: (id, cb) ->
     db.get id, (err, post) -> db.remove id, post._rev, cb
+  comment: (id, comment, cb) ->
+    comment.formatted_body = md(comment.body)
+    db.get id, (err, post) ->
+      post.comments ?= [] 
+      post.comments.unshift comment
+      db.save post, cb
       
   all: (cb) -> db.view 'posts/all', cb 
   # Build Views

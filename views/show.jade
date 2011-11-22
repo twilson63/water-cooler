@@ -1,15 +1,30 @@
 .container
   .two.columns
     h1 Post
-    a.button(href="/posts/#{_id}/edit", style='width:100%') Edit
+    a.button(href="/posts/#{post._id}/edit", style='width:100%') Edit
     a.button(href="/posts", style='width:100%') Home
   .twelve.columns.offset-by-one
-    h3= title
-    hr
+    h3(style="border-bottom 2px solid black;")= post.title
     .markdown
-      !{formatted_body}
+      !{post.formatted_body}
+    p Updated By !{post.updated_by} on !{post.updated_at}
+    h3 New Comment
+    form(method="POST", action="/posts/#{post._id}/comments")
+      input(type="hidden", name="user", value=currentUser)
+      textarea(name="body", placeholder="Add Comment or Answer to Post", style="min-height: 100px;")
+      button Add Comment
+    h3 Comment History
+    ul
+      each comment in post.comments
+        li
+          .one.columns
+            img(src="http://#{comment.user}.jpg.to", style="height:30px;width:30px;")
+          .two.columns
+            p #{comment.user} says
+          .nine.columns.omega
+            !{comment.formatted_body}
+    
     hr
-    p Updated By !{updated_by} on !{updated_at}
-    form(id="delete", method="POST", action="/posts/#{_id}")
+    form(id="delete", method="POST", action="/posts/#{post._id}")
       input(type="hidden", name="_method", value="DELETE")
       button(style="width: 100%") Delete
