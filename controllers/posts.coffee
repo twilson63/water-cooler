@@ -1,4 +1,8 @@
-Post = require './models/post'
+# # Posts Controller
+#
+# The Posts Controller handles all of the routing and binding
+# information for the posts.  
+Post = require '../models/post'
 
 module.exports = (app, auth) ->
   # index

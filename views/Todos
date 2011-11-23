@@ -1,0 +1,17 @@
+# Goals today
+
+* Use express/mocha to create acfuller-wireless
+* design new synmed build process
+  - Really think through the idea of creating a synmed view in sproutcore
+  - and allow the pharmacist to see it, then submit the synmed data to
+  - couchbase for storage
+
+  - when batch is built we pull the baskets from couchbase and push to batcher.
+  - need to build synmed files at time of scrub before sent to GRx for dispense.
+
+  - need to also look at entry point for labels and documentation.
+
+  ----
+  Need to work through inventory process of 28 days supply.
+
+  

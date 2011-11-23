@@ -1,0 +1,11 @@
+!= js("ace/ace")
+!= js("ace/theme-twilight")
+!= js("ace/mode-markdown")
+
+:coffeescript
+  window.onload = -> 
+    window.editor = editor = ace.edit 'editor'
+    editor.setTheme("ace/theme/twilight")
+    MarkdownMode = require("ace/mode/markdown").Mode
+    editor.getSession().setMode(new MarkdownMode())
+    editor.getSession().setUseSoftTabs(true)

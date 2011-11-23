@@ -1,8 +1,8 @@
 express = require 'express'
 middleware = require './middleware'
 # declare controllers
-sessions = require './sessions'
-posts = require './posts'
+sessions = require './controllers/sessions'
+posts = require './controllers/posts'
 
 app = express.createServer()
 

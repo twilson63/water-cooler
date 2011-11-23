@@ -1,7 +1,22 @@
+# # Post Model
+# 
+# The Post Model contains the basic methods of a model class and uses
+# the data document as the instance class.
+
 md = require('node-markdown').Markdown
 sugar = require('sugar')
+
+# # db connection
+# 
+# if using multiple models, you can create a db.coffee file
+# and place this code there, then export it so that all your
+# models get code from the same place.
+#
+# eg.
+# db = require './db_conn.coffee'
 cradle = require 'cradle'
 db = new(cradle.Connection)(process.env.COUCHDB, process.env.PORT or 5984, cache: true, raw: false, auth: { username: process.env.USERNAME, password: process.env.PASSWORD}).database("water-cooler")
+
 
 module.exports = 
   setDefaults: (post) ->

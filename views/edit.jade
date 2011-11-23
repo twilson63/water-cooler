@@ -1,15 +1,17 @@
+include ace
 .container
   .two.columns
     h1 Edit Post
-  .eight.columns.offset-by-one
-    form(method='POST', action="/posts/#{_id}")
+  .twelve.columns.offset-by-one
+    form(id="post", method='POST', action="/posts/#{_id}")
       input(type="hidden", name="_method", value="PUT")
       p
         label Title
         input(type='text', name="title", value=title, autofocus)
       p
         label Body
-        textarea(name="body", placeholder="Markdown Enabled")= body
+        div(id="editor")
+        textarea(name="body", placeholder="Markdown Enabled", style="display:none;")= body
         small: a(href="http://daringfireball.net/projects/markdown/syntax") markdown supported
       p
         button Update
