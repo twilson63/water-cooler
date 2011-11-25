@@ -11,3 +11,12 @@
             a(href="/posts/#{post.id}")= post.value.title
           p 
             = 'by ' + post.value.updated_by + ' on ' + post.value.updated_at
+          
+          if post.value.comments != null
+            hr
+            .comment
+              .two.columns
+                p #{post.value.comments[0].user} says
+              .nine.columns.omega
+                !{post.value.comments[0].formatted_body}
+            hr
