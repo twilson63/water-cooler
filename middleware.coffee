@@ -2,7 +2,7 @@ stylus = require 'stylus'
 assets = require 'connect-assets'
 
 module.exports = (express, app) ->
-  app.use assets()
+  app.use assets build: true
   app.use express.cookieParser()
   app.use express.session secret: 'madblogger'
   app.use express.bodyParser()

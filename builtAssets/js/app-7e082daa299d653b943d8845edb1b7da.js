@@ -1,0 +1,1 @@
+$(function(){var a;return $("#delete").submit(function(){return confirm("Are you sure?")}),$("#post").submit(function(){return $("textarea").val(window.editor.getSession().getValue()),!0}),a=function(){if(window.editor)return window.editor.getSession().setValue($("#post textarea").text())},setTimeout(a,500)})
