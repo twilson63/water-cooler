@@ -14,6 +14,8 @@ module.exports = (app, auth) ->
 
   # create
   app.post '/posts', auth(), (req, resp) ->
+    req.body.tags = (tag.trim() for tag in req.body.tags.split(',')) 
+    # Need to merge array with array in tag key
     req.body.updated_by = req.session.user 
     Post.create req.body, (err, post) -> resp.redirect "/posts/#{post.id}"
 

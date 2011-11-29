@@ -10,8 +10,8 @@ include ace
         input(type='text', name="title", value=title, autofocus)
       p
         label Body
-        div(id="editor")
-        textarea(name="body", placeholder="Markdown Enabled", style="display:none;")= body
+        div(id="editor", style="display:none;")
+        textarea(name="body", placeholder="Markdown Enabled")= body
         small: a(href="http://daringfireball.net/projects/markdown/syntax") markdown supported
       p
         button Update
