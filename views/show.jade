@@ -3,8 +3,8 @@
     h1 Post
     a.button(href="/posts/#{post._id}/edit", style='width:100%') Edit
     a.button(href="/posts", style='width:100%') Home
-  .thirteen.columns.offset-by-one
-    h3(style="border-bottom 2px solid black;")= post.title
+  .thirteen.columns.offset-by-one.show-post
+    h1(style="border-bottom 2px solid black;")= post.title
     .markdown
       !{post.formatted_body}
     p Updated By !{post.updated_by} on !{post.updated_at}

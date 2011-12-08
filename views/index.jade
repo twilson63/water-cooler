@@ -1,31 +1,23 @@
-.header
-  .container
-    .two.columns
-      a.button(href="/logout") Sign Out
-    .twelve.columns
-      h3 Water Cooler
-    .two.columns
-      a.button(href="/posts/new", style="float:right;") New Post
-      
+.header: .container
+  &nbsp;
 .container
   .two.columns
     h1 Water Cooler
     a.button(href="/posts/new", style='width:100%') New Post
     a.button(href="/logout", style='width:100%') Sign Out
-  .right.ten.columns.offset-by-one
+  .right.twelve.columns.offset-by-one
     ul
       each post in posts
-        li
+        li.post
           h3
             a(href="/posts/#{post.id}")= post.value.title
-          p 
+          p(style='text-align: right;') 
             = 'by ' + post.value.updated_by + ' on ' + post.value.updated_at
           
           if post.value.comments != null
-            hr
-            .comment
-              .two.columns
-                p #{post.value.comments[0].user} says
-              .nine.columns.omega
-                !{post.value.comments[0].formatted_body}
-            hr
+            .comments.offset-by-four.eight.columns
+              h4(style='text-align:right') Comments
+              .comment
+                !{post.value.comments[0].user + ' says: ' + post.value.comments[0].formatted_body}
+            .clearfix
+          

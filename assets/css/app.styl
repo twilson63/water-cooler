@@ -1,5 +1,34 @@
 @import 'nib'
 
+.comments
+  margin-bottom: 20px
+  padding-bottom: 20px
+
+  .comment
+    border: 4px solid darkgray
+    background: gray
+    border-radius: 15px;
+    padding: 10px
+    margin: 2px
+    color: white
+    font-size: 1.2em
+  
+    :first-child
+      display: inline
+
+h1
+  color: rgba(0,131,225, .7)
+
+li.post
+  h3
+    border: 2px solid rgba(0,32,56, .9)
+    padding: 10px
+    a
+      text-decoration: none
+      width: 100%;
+      font-style: bold
+      color: rgba(0,32,56, .9)
+
 #editor {
       position: relative;
       width: 100%;
@@ -9,6 +38,7 @@
 .header
   margin: 0
   padding: 0
+  margin-bottom: 20px
   background: linear-gradient(top, white, gray)
   .container
     padding: 0
@@ -140,3 +170,21 @@ textarea
       margin: 0 auto 0 0;
       color: #999;
   }
+
+.show-post
+  h1
+    margin: 10px 0px
+    padding: 10px
+    background: rgba(0,32,56, .9)
+    color: white
+
+.markdown
+  h2
+    color: rgba(0,32,56, .9)
+    text-align: right
+  ul
+    padding: 20px
+    margin: 20px
+    li
+      border-bottom: 3px solid whitesmoke
+      list-style: none
